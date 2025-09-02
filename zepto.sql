@@ -19,13 +19,24 @@ SELECT * FROM ZEPTO LIMIT 10;
 
 SELECT *FROM ZEPTO
 WHERE name is NULL
-OR
+or
 category is NULL
-OR
+or
 mrp is NULL
 or
 discountPercent is NULL
 or 
 discountedSellingPrice is NULL
 or 
-weightInGas IS NULL
+weightInGms IS NULL
+or
+availableQuantity IS Null
+or
+outOfStock is Null
+or
+quantity is Null;
+
+SELECT DISTINCT category
+FROM ZEPTO
+ORDER BY category
+
