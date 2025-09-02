@@ -1,0 +1,12 @@
+CREATE TABLE ZEPTO(
+SKU_ID SERIAL PRIMARY KEY,
+CATEGORY VARCHAR(120),
+NAME VARCHAR(150) NOT NULL,
+MRP NUMERIC(8,2),
+discountPercent NUMERIC(5,2),
+availableQuantity INTEGER,
+discountedSellingPrice NUMERIC(8,2),
+weightInGas INTEGER,
+outOfStock BOOLEAN,
+quantity INTEGER
+);
