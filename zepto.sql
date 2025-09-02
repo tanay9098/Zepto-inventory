@@ -10,3 +10,22 @@ weightInGas INTEGER,
 outOfStock BOOLEAN,
 quantity INTEGER
 );
+
+ALTER TABLE public.zepto RENAME COLUMN weightInGas  TO weightInGms;
+
+SELECT COUNT(*) FROM ZEPTO;
+
+SELECT * FROM ZEPTO LIMIT 10;
+
+SELECT *FROM ZEPTO
+WHERE name is NULL
+OR
+category is NULL
+OR
+mrp is NULL
+or
+discountPercent is NULL
+or 
+discountedSellingPrice is NULL
+or 
+weightInGas IS NULL
