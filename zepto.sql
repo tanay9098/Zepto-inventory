@@ -40,3 +40,14 @@ SELECT DISTINCT category
 FROM ZEPTO
 ORDER BY category
 
+
+SELECT outOfStock, COUNT(sku_id)
+FROM ZEPTO
+GROUP BY outOfStock;
+
+
+SELECT name, COUNT(sku_id) as "Number of SKUs"
+FROM zepto
+GROUP BY name
+HAVING count(sku_id)>1
+ORDER BY COUNT(sku_id) DESC;
