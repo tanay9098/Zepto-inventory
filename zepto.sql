@@ -18,23 +18,23 @@ SELECT COUNT(*) FROM ZEPTO;
 SELECT * FROM ZEPTO LIMIT 10;
 
 SELECT *FROM ZEPTO
-WHERE name is NULL
-or
-category is NULL
-or
-mrp is NULL
-or
-discountPercent is NULL
-or 
-discountedSellingPrice is NULL
-or 
+WHERE NAME IS NULL
+OR
+category IS NULL
+OR
+mrp IS NULL
+OR
+discountPercent IS NULL
+OR
+discountedSellingPrice IS NULL
+OR
 weightInGms IS NULL
-or
-availableQuantity IS Null
-or
-outOfStock is Null
-or
-quantity is Null;
+OR
+availableQuantity IS NULL
+OR
+outOfStock IS NULL
+OR
+quantity IS NULL;
 
 SELECT DISTINCT category
 FROM ZEPTO
@@ -68,34 +68,34 @@ SELECT mrp, discountedSellingPrice FROM ZEPTO
 
 -- Q1. Find the top 10 best-value products based on the discount percentage.
 SELECT DISTINCT name, mrp, discountPercent
-FROM zepto
+FROM ZEPTO
 ORDER BY discountPercent DESC
 LIMIT 10;
 
 --Q2.What are the Products with High MRP but Out of Stock
 
 SELECT DISTINCT name,mrp
-FROM zepto
+FROM ZEPTO
 WHERE outOfStock = TRUE and mrp > 300
 ORDER BY mrp DESC;
 
 --Q3.Calculate Estimated Revenue for each category
 SELECT category,
 SUM(discountedSellingPrice * availableQuantity) AS total_revenue
-FROM zepto
+FROM ZEPTO
 GROUP BY category
 ORDER BY total_revenue;
 
 -- Q4. Find all products where MRP is greater than ₹500 and discount is less than 10%.
 SELECT DISTINCT name, mrp, discountPercent
-FROM zepto
+FROM ZEPTO
 WHERE mrp > 500 AND discountPercent < 10
 ORDER BY mrp DESC, discountPercent DESC;
 
 -- Q5. Identify the top 5 categories offering the highest average discount percentage.
 SELECT category,
 ROUND(AVG(discountPercent),2) AS avg_discount
-FROM zepto
+FROM ZEPTO
 GROUP BY category
 ORDER BY avg_discount DESC
 LIMIT 5;
@@ -103,7 +103,7 @@ LIMIT 5;
 -- Q6. Find the price per gram for products above 100g and sort by best value.
 SELECT DISTINCT name, weightInGms, discountedSellingPrice,
 ROUND(discountedSellingPrice/weightInGms,2) AS price_per_gram
-FROM zepto
+FROM ZEPTO
 WHERE weightInGms >= 100
 ORDER BY price_per_gram;
 
@@ -113,11 +113,11 @@ CASE WHEN weightInGms < 1000 THEN 'Low'
 	WHEN weightInGms < 5000 THEN 'Medium'
 	ELSE 'Bulk'
 	END AS weight_category
-FROM zepto;
+FROM ZEPTO;
 
 --Q8.What is the Total Inventory Weight Per Category 
 SELECT category,
 SUM(weightInGms * availableQuantity) AS total_weight
-FROM zepto
+FROM ZEPTO
 GROUP BY category
 ORDER BY total_weight;
