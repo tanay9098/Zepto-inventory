@@ -51,3 +51,17 @@ FROM zepto
 GROUP BY name
 HAVING count(sku_id)>1
 ORDER BY COUNT(sku_id) DESC;
+
+--data cleaning
+SELECT * FROM ZEPTO
+Where mrp=0 or discountedSellingPrice=0;
+
+DELETE from ZEPTO where mrp=0;
+
+UPDATE ZEPTO
+SET mrp=mrp/100.0,
+discountedSellingPrice=discountedSellingPrice/100.0;
+
+SELECT mrp, discountedSellingPrice FROM ZEPTOl 
+
+
