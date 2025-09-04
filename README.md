@@ -16,7 +16,7 @@ The raw data underwent several crucial cleaning and transformation steps to ensu
 **Currency Conversion:** To enable proper analysis, the currency of *mrp* column has been converted to rupees from paisa.
 
 ## 4.Analysis and Methodology
-The analysis was performed by leveraging Python's data science libraries. Pandas was used extensively for data manipulation, including filtering, grouping, and aggregation. Matplotlib and Seaborn were the primary tools for data visualization, allowing for a clear and intuitive representation of the findings. The analysis focused on answering key business questions by aggregating data and visualizing the results through various charts.
+This project was carried out entirely in PostgreSQL. The methodology followed a structured approach of data cleaning, transformation, and analysis using SQL queries to derive meaningful business insights.
 
 ## 5.Business Insights
 
